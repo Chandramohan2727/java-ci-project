@@ -27,11 +27,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image (tag for Docker Hub)
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest .
+      - name: Build Docker image
+        run: docker build -t ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/java-ci-app:latest .
 
-      - name: Push image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest
+      - name: Push Docker image to ECR
+        run: docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/java-ci-app:latest
+
 
       # Configure AWS credentials for ECR actions
       - name: Configure AWS credentials
