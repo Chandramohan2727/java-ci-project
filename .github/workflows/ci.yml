@@ -28,9 +28,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest .
-
-
+        run: docker build -t chandramohan2730/java-ci-app:latest .
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest
+        run: docker push chandramohan2730/java-ci-app:latest
