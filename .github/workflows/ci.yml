@@ -1,16 +1,3 @@
-name: CI Pipeline - Java + Docker
-
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -31,7 +18,6 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest .
-
 
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest
