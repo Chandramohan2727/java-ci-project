@@ -47,12 +47,12 @@ jobs:
       - name: Tag image for ECR
         run: |
           ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_URI=${ACCOUNT_ID}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}
-          docker tag ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest ${ECR_URI}:latest
+          ECR_URI=${ACCOUNT_ID}.dkr.ecr.${{ secrets.ap-south-1 }}.amazonaws.com/${{ secrets.java-ci-app }}
+          docker tag ${{ secrets.chandramohan2730 }}/java-ci-app:latest ${ECR_URI}:latest
           echo "ECR_URI=${ECR_URI}" >> $GITHUB_OUTPUT
 
       - name: Push image to Amazon ECR
         run: |
           ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_URI=${ACCOUNT_ID}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}
+          ECR_URI=${ACCOUNT_ID}.dkr.ecr.${{ secrets.ap-south-1 }}.amazonaws.com/${{ secrets.java-ci-app }}
           docker push ${ECR_URI}:latest
