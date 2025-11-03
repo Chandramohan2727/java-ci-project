@@ -24,22 +24,22 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.chandramohan2730 }}
+          password: ${{ secrets.Nezuko@30 }}
 
       - name: Build Docker image (tag for Docker Hub)
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest .
+        run: docker build -t ${{ secrets.chandramohan2730 }}/java-ci-app:latest .
 
       - name: Push image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest
+        run: docker push ${{ secrets.chandramohan2730 }}/java-ci-app:latest
 
       # Configure AWS credentials for ECR actions
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AKIA2WIKG53AVHKVQMPI }}
+          aws-secret-access-key: ${{ secrets.UXeNmy40D8Y9pTBfJiO2rSAPuUY9KwybwmdaMcjK }}
+          aws-region: ${{ secrets.ap-south-1 }}
 
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
