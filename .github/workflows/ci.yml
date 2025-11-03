@@ -21,7 +21,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Compile Java app
-      run: javac Main.java
+      run: javac app/Main.java
 
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/java-ci-app:latest .
